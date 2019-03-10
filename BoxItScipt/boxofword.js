@@ -1,4 +1,4 @@
-const box_list_of_words ={
+const box_list_of_words = {
 
     drawline:function drawLine(number){
         let horizontal_bars = '';
@@ -46,9 +46,15 @@ const box_list_of_words ={
     },
 
     boxIt: function boxIt(arr){
+        let args = process.argv.slice(2);
+        let wordFromTerminal = [];
+            let length = args.length;
+            for(let i = 0; i < length;i++){
+                wordFromTerminal.push(args[i]);
+            }
         // first, count max words number 
-        let maxWordLength = arr[0].length;
-        for(let word of arr){
+        let maxWordLength = 0;
+        for(let word of wordFromTerminal){
             if(maxWordLength < word.length){
                 maxWordLength = word.length;
             }//if
@@ -56,13 +62,13 @@ const box_list_of_words ={
         let boxTop = this.drawTopBorder(maxWordLength);    
         let boxMiddle = this.drawMiddleBorder(maxWordLength);
         let boxBottom = this.drawBottomBorder(maxWordLength);
-        let noword =`${boxTop}\n${boxBottom}`
+        let noword =`${boxTop}${boxBottom}`
         let arrayWord = []; 
         let spaceFromMaxLength = 0;
         let space =" ";
         let wordInBox='';
         let barWord =[];
-        for(let word of arr){
+        for(let word of wordFromTerminal){
             spaceFromMaxLength =  maxWordLength - word.length;
             for(let i = 0;i < spaceFromMaxLength;i++){
                 word = word + space;
@@ -72,8 +78,10 @@ const box_list_of_words ={
         
         for(let i = 0; i < arrayWord.length; i++){
             barWord.push(this.drawBarsAround(arrayWord[i])); 
-            // wordInBox += `${barWord[i]}\n${boxMiddle}\n`;
-            if(i === 0){
+            if(barWord[0]===""){
+                return noword;
+            }
+            else if(i === 0){
                 wordInBox += `${boxTop}\n${barWord[i]}\n${boxMiddle}\n`
             }else if(i < arrayWord.length-1){
                 wordInBox +=`${barWord[i]}\n${boxMiddle}\n`;
@@ -82,23 +90,27 @@ const box_list_of_words ={
                 wordInBox += `${barWord[i]}\n${boxBottom}`
             }
             
-            // (i < arrayWord.length-1){
-            //     wordInBox = `${barWord[i]}\n${boxMiddle}\n`;
-            // }else if (i = arrayWord.length-1){
-            //     wordInBox = `${barWord[i]}\n${boxMiddle}\n${boxBottom}`
-            // }else if(i === 0){
-            //     wordInBox = `${boxTop}\n${barWord[i]}\n${boxMiddle}\n`
-            // }
-           
-                
-                // \n${boxMiddle}\n${boxBottom}\n`;
             }//for
             return wordInBox;
         },//boxIt
-        
 
-    }//box_list_of_word
+        // allTogether: function allTogether(string){
+        //     let args = process.argv.slice(2);
+        //     let wordFromTerminal = [];
+        //     let length = args.length;
+            
+        //     for(let i = 0; i < length;i++){
+        //         wordFromTerminal.push(args[i]);
+        //     }
+        //     return wordFromTerminal;
+        // },//allTogether
+    
        
+        
+    
+    }//box_list_of_word
+    
+ 
 
         // stringWithSpace = arrayWord.join(',')
         
@@ -116,4 +128,9 @@ const box_list_of_words ={
 // console.log(box_list_of_words.drawBottomBorder(c));
 // console.log(box_list_of_words.drawBarsAround("my name is Dan"));
 // console.log(box_list_of_words.drawBarsAround("   You are Bill"));
-console.log(box_list_of_words.boxIt(['Jon Snow','Cersei Lannister','Daenerys Targaryen', 'Kota Watanabe']));
+// console.log(box_list_of_words.drawBarsAround("   You are Bill"));
+// console.log(box_list_of_words.boxIt(['Jon Snow', 'Cersei Lannister']));
+// console.log(box_list_of_words.boxIt([]));
+console.log(box_list_of_words.boxIt());
+
+
