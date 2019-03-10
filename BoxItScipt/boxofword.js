@@ -51,44 +51,64 @@ const box_list_of_words ={
         for(let word of arr){
             if(maxWordLength < word.length){
                 maxWordLength = word.length;
-            }
-         }
+            }//if
+         }//for
         let boxTop = this.drawTopBorder(maxWordLength);    
         let boxMiddle = this.drawMiddleBorder(maxWordLength);
         let boxBottom = this.drawBottomBorder(maxWordLength);
-        let stringWithSpace = ""; 
+        let noword =`${boxTop}\n${boxBottom}`
+        let arrayWord = []; 
         let spaceFromMaxLength = 0;
-
+        let space =" ";
+        let wordInBox='';
+        let barWord =[];
         for(let word of arr){
-            stringWithSpace = word
-        }
-
-        for(let string of arr){
-            spaceFromMaxLength =  maxWordLength - string.length;
-        }
-
-        for(let i = 0; i < spaceFromMaxLength;i++){
-            stringWithSpace += " "
-        }
-        let barWord = this.drawBarsAround(stringWithSpace);
-         
-
-        let wordInBox = `${boxTop}\n${barWord}\n${boxMiddle}\n${boxBottom}`;
-        return wordInBox;
-        },
-
-
+            spaceFromMaxLength =  maxWordLength - word.length;
+            for(let i = 0;i < spaceFromMaxLength;i++){
+                word = word + space;
+            }
+            arrayWord.push([word]);
+        } //for
         
+        for(let i = 0; i < arrayWord.length; i++){
+            barWord.push(this.drawBarsAround(arrayWord[i])); 
+            // wordInBox += `${barWord[i]}\n${boxMiddle}\n`;
+            if(i === 0){
+                wordInBox += `${boxTop}\n${barWord[i]}\n${boxMiddle}\n`
+            }else if(i < arrayWord.length-1){
+                wordInBox +=`${barWord[i]}\n${boxMiddle}\n`;
+            }
+            else if(i === arrayWord.length-1){
+                wordInBox += `${barWord[i]}\n${boxBottom}`
+            }
+            
+            // (i < arrayWord.length-1){
+            //     wordInBox = `${barWord[i]}\n${boxMiddle}\n`;
+            // }else if (i = arrayWord.length-1){
+            //     wordInBox = `${barWord[i]}\n${boxMiddle}\n${boxBottom}`
+            // }else if(i === 0){
+            //     wordInBox = `${boxTop}\n${barWord[i]}\n${boxMiddle}\n`
+            // }
+           
+                
+                // \n${boxMiddle}\n${boxBottom}\n`;
+            }//for
+            return wordInBox;
+        },//boxIt
         
-    }
 
+    }//box_list_of_word
+       
 
+        // stringWithSpace = arrayWord.join(',')
+        
 
+        // let wordInBox = `${boxTop}\n${barWord}\n${boxMiddle}\n${boxBottom}`;
+        // return wordInBox;  
 
-
-let a = 4;
-let b = 1;
-let c = 8;
+// let a = 4;
+// let b = 1;
+// let c = 8;
 
 // console.log(box_list_of_words.drawline(a));
 // console.log(box_list_of_words.drawTopBorder(c));
@@ -96,4 +116,4 @@ let c = 8;
 // console.log(box_list_of_words.drawBottomBorder(c));
 // console.log(box_list_of_words.drawBarsAround("my name is Dan"));
 // console.log(box_list_of_words.drawBarsAround("   You are Bill"));
-console.log(box_list_of_words.boxIt(['Jon Snow', 'Cersei Lannister']));
+console.log(box_list_of_words.boxIt(['Jon Snow','Cersei Lannister','Daenerys Targaryen', 'Kota Watanabe']));
