@@ -62,7 +62,6 @@ const box_list_of_words = {
         let boxTop = this.drawTopBorder(maxWordLength);    
         let boxMiddle = this.drawMiddleBorder(maxWordLength);
         let boxBottom = this.drawBottomBorder(maxWordLength);
-        let noword =`${boxTop}${boxBottom}`
         let arrayWord = []; 
         let spaceFromMaxLength = 0;
         let space =" ";
@@ -78,19 +77,22 @@ const box_list_of_words = {
         
         for(let i = 0; i < arrayWord.length; i++){
             barWord.push(this.drawBarsAround(arrayWord[i])); 
-            if(barWord[0]===""){
-                return noword;
+            if(arrayWord.length === 1){
+                wordInBox += `${boxTop}\n${barWord[i]}\n${boxBottom}\n`
+            }else if(arrayWord.length >1 && i === 0){
+                wordInBox += `${boxTop}\n${barWord[i]}\n${boxMiddle}\n`;
             }
-            else if(i === 0){
-                wordInBox += `${boxTop}\n${barWord[i]}\n${boxMiddle}\n`
-            }else if(i < arrayWord.length-1){
+            else if(arrayWord.length > 1 && i < arrayWord.length-1){
                 wordInBox +=`${barWord[i]}\n${boxMiddle}\n`;
             }
             else if(i === arrayWord.length-1){
                 wordInBox += `${barWord[i]}\n${boxBottom}`
-            }
-            
+            }            
             }//for
+        let noword =`${boxTop}\n${boxBottom}`
+        if(arrayWord.length === 0){
+            wordInBox = noword;
+        }
             return wordInBox;
         },//boxIt
 
