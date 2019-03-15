@@ -1,3 +1,5 @@
+#!/Users/kota/.nvm/versions/node/v11.10.1/bin/node
+
 const box_list_of_words = {
     // Create Line
     drawline:function drawLine(number){
