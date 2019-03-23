@@ -81,11 +81,9 @@ class Turtle{
                 return true;
             }
         }
-      
-            
-    
         return false;
     }
+
     print(){
         const mark = "@";
         const blank = '-'
@@ -100,19 +98,15 @@ class Turtle{
 
         let xArr = [];
         let yArr= [];
-
-        // console.log(newArr);
     
+         // maxheight & Max width
             for(let element of newArr){
                xArr.push(element[0]);
            }
-        //    console.log(xArr);
            for(let element of newArr){
                yArr.push(element[1]);
             }
-    
-        
-            // maxheight & Max width
+           
             for(let i = 0; i < yArr.length; i++){
                 if(maxHeight < yArr[i]){
                     maxHeight = yArr[i];
@@ -125,27 +119,7 @@ class Turtle{
                     maxWidth = xArr[i];
                     maxWidth = maxWidth.toString();
                 }     
-            }
-
-            // for(let num of yArr){
-            //     if(minHeight > num){
-            //         minHeight = num;
-            //     }
-            // }
-
-            // for(let num of xArr){
-            //     if(minWidth > num){
-            //        minWidth = num;
-            //     }
-            // }
-         
-            // console.log(yArr);
-            // console.log(maxHeight);
-            // console.log(maxWidth);
-       
-
-
-          
+            }        
         
             for (let num = 0; num <= maxHeight; num++) {
                 for(let i = 0; i <= maxWidth; i++){
@@ -159,23 +133,12 @@ class Turtle{
                 rowOutPut=''
                
             }    
-            // console.log(newArr); 
+      
             return console.log(tempArr.join('\n'));  
         }
      
 
 }         
-
-      
-             
-            
-
-                     
-    
-
-
-
-
 
 // const flash = new Turtle(0,0)
 
@@ -204,12 +167,4 @@ const flash = new Turtle(0, 4)
   .left()
   .forward(3)
 
-
-
-
-
-// flash.forward(2);
-// flash.forward(2);
-// console.log(flash);
-// console.log(flash.allPoints());
 console.log(flash.print());
