@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+<main>
+<div class="cohort-container">
+<div class="cohort-block">
+<div><h2><%= cohort.name %></h2></div>
+<div><%=cohort.members%> </div>
+</div>
+<form action="cohorts/:id" method="GET">
+<p class="team_pick_method">Method</p>
+<input type="radio" name="method" id="team_count" value="team_count" >
+      <label for="team_count">Team Count</label>
+      <br>
+<input type="radio" name="method" id="number_per_team" value="number_per_team">
+<label for="number_per_team">Number Per Team</label>
+<br>
+<label for="quantity">Quantity</label>
+<br>
+<input type="text" name ="quantity" id="quantity">
+<br>
+<input class="assign-button" type="submit" value="assign team">
+</form>
+
+ <% if(team_count === team_count) { %>
+    <p>You choose team count!</p>
+    <% } %>
+    <%if(number_per_team === number_per_team) {%>
+    <p>You choose number_per_team</p>
+    <% } %>
+  
+    </div>
+
+</main>
+<%- include('../partials/footer') %>

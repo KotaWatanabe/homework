@@ -1,4 +1,13 @@
-<%- include('./partials/header') %>
-
-
-<%- include('./partials/footer') %>
+<%- include('../partials/header') %>
+<main>
+<ul>
+  <% for (let cohort of cohorts) { %>
+    <li>
+      <h2><%= cohort.name %></h2> <br>
+      <p><%= cohort.members %></p> <br>
+      <a class="btn btn-primary index-btn" href= "/cohorts/<%=cohort.id%>" role="button">Show Cohort</a>
+    </li>
+  <% } %>
+<ul>
+</main>
+<%- include('../partials/footer') %>

@@ -1,0 +1,93 @@
+html {
+    /* Create a CSS variable by prefixing a word with -- */
+    --border-radius: 5px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  header{
+    font-size:1.6em;
+}
+
+.navbar{
+    display:flex;
+    align-items:center;
+  }
+
+  .navbar > * {
+    padding: 10px;
+  }
+
+  .navbar-nav{
+    margin-left:auto;
+    padding: 0 3em;
+}
+  
+  body{
+    margin: 0;
+  }
+
+  main{
+    padding: 1em 3em;
+  }
+  /* The * is a selector that gets ALL TAGS */
+  * {
+    font-family: inherit;
+  }
+  
+  input,
+  textarea {
+    font-size: inherit;
+    border-radius: var(--border-radius);
+    border:1px solid grey;
+      /* Use the calc() CSS function to simple calculations with units. Different
+    units can be combined! */
+    padding: calc(1rem/2);
+    margin-bottom: 1.5em;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+  }
+  textarea{
+    position: relative;
+  }
+  .new-btn{
+      width:10%;
+      position: absolute;
+      right:3em;
+      bottom:12em;
+  }
+  /* home page */
+  .jumbotron{
+      text-align: center;
+  }
+  
+  /* index page */
+  li{
+      list-style:none;
+      border: 1px solid gray;
+      border-radius: 1em;
+      margin-bottom: 1em;
+      padding: 1em;
+  }
+  
+    /* show page */
+
+.cohort-container{
+    padding: 1em;
+    border:1px solid gray
+}
+.cohort-block{
+    border-bottom:1px solid gray;
+    padding-bottom: 1em;
+}
+
+  .team_pick_method{
+      margin-top: 1em;
+  }
+
+  .assign-button{
+      border-color:blue;
+      color:blue;
+  }
+
+ 

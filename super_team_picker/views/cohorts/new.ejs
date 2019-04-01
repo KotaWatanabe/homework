@@ -1,4 +1,28 @@
-<%- include('./partials/header') %>
+<%- include('../partials/header') %>
+<main>
+<form action="/cohorts" method="POST">
+    <div>
+    <label for="logoUrl">Logo Url</label><br>
+    <input class="logoUrl" type="text" name="logoUrl" placeholder="e.g. https://www.example.com/some.png">
+    </div>
+    <div>
+    <label for="name">Name</label><br>
+    <input class="name" type="text" name="name" placeholder="Flying Funks">
+    </div>   
+    <div>
+    <label for="members">Members</label><br>
+    <textarea
+      class="members"
+      name="members"
+      cols="50"
+      rows="4"
+      placeholder="John Snow, Dannerys, Mekisandre, Arya Stark"
+    ></textarea>
+    </div>
 
+    <input class="btn btn-primary new-btn" type="submit" value="Submit">
+</form>
 
-<%- include('./partials/footer') %>
+</main>
+
+<%- include('../partials/footer') %>

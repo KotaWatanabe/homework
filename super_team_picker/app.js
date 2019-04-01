@@ -30,6 +30,8 @@ app.use(express.urlencoded({ extended: true }));
 // COOKIER PARSER
 app.use(cookieParser());
 
+app.use(express.static(path.join(__dirname, "public")));
+
 
 // app.use((request, response, next) => {
 //   console.log("ðª Cookies:", request.cookies);
@@ -45,7 +47,7 @@ app.use(cookieParser());
 // -= ROUTERS =-
 
 app.use("/", rootRouter);
-// app.use("/cohorts", cohortsRouter);
+app.use("/cohorts", cohortsRouter);
 
 
 const PORT = 4508;
