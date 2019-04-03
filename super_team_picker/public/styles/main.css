@@ -34,15 +34,13 @@ html {
     font-family: inherit;
   }
   
-  input,
+  .new-input,
   textarea {
     font-size: inherit;
     border-radius: var(--border-radius);
     border:1px solid grey;
-      /* Use the calc() CSS function to simple calculations with units. Different
-    units can be combined! */
     padding: calc(1rem/2);
-    margin-bottom: 1.5em;
+    margin-bottom: 1.5em; 
     display: inline-block;
     width: 100%;
     vertical-align: middle;
@@ -69,12 +67,27 @@ html {
       margin-bottom: 1em;
       padding: 1em;
   }
+  .cohort{
+      display:flex;
+      width:100%;
+  }
+  .img{
+      flex:1;
+      margin: 0;
+  }
+  .content{
+      flex:6;
+  }
+  .index-btn{
+      padding: 0.5em 2em;
+  }
   
     /* show page */
 
 .cohort-container{
     padding: 1em;
-    border:1px solid gray
+    border:1px solid gray;
+    border-radius: var(--border-radius);
 }
 .cohort-block{
     border-bottom:1px solid gray;
@@ -89,5 +102,34 @@ html {
       border-color:blue;
       color:blue;
   }
+  .show-input{
+    font-size: inherit;
+    margin-right: 0.5em;    
+  }
+  .quantity-label{
+      margin-top: 1em;
+  }
+  .qunatity-input{
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5em;
+  }
+   .assign-button{
+      width: 100%;
+      border-radius: var(--border-radius);
+      padding: 0.5em;
+  }
+  .random_members{
+      margin-top: 1em;
+  }
+  .members_title{
+      font-weight:bold;
+  }
+  .index{
+      margin-right: 0.5em;
+  }
+  /* hr{
+      padding: 0;
+  } */
 
- 
+  /* https://www.seoclerk.com/pics/579352-15CTfd1515601765.png */

@@ -1,32 +1,80 @@
 <%- include('../partials/header') %>
 <main>
-<div class="cohort-container">
-<div class="cohort-block">
-<div><h2><%= cohort.name %></h2></div>
-<div><%=cohort.members%> </div>
-</div>
-<form action="cohorts/:id" method="GET">
-<p class="team_pick_method">Method</p>
-<input type="radio" name="method" id="team_count" value="team_count" >
-      <label for="team_count">Team Count</label>
-      <br>
-<input type="radio" name="method" id="number_per_team" value="number_per_team">
-<label for="number_per_team">Number Per Team</label>
-<br>
-<label for="quantity">Quantity</label>
-<br>
-<input type="text" name ="quantity" id="quantity">
-<br>
-<input class="assign-button" type="submit" value="assign team">
-</form>
+    <div class="cohort-container">
+        <div class="cohort-block">
+            <div><h2><%= cohort.name %></h2></div>
+            <div><%=cohort.members%> </div>
+        </div>
 
- <% if(team_count === team_count) { %>
-    <p>You choose team count!</p>
-    <% } %>
-    <%if(number_per_team === number_per_team) {%>
-    <p>You choose number_per_team</p>
-    <% } %>
-  
+        <form action="#" method="GET">
+            <p class="team_pick_method">Method</p>
+            <div class="team_count">
+                <input class="show-input" type="radio" name="method" id="team_count" value="team_count" ><label for="team_count">Team Count</label>
+            </div>
+            <div class="number_per_team">
+                <input class="show-input" type="radio" name="method" id="number_per_team" value="number_per_team">
+                <label for="number_per_team">Number Per Team</label>
+            </div>
+                <label class="quantity-label" for="quantity">Quantity</label><br>
+                <input class="qunatity-input" type="text" name ="quantity" id="quantity"><br>
+                <input class="assign-button" type="submit" value="Assign team">
+        </form>
+        <% let members = cohort.members.split(",") %>
+        <% let length = members.length %>
+        <% total_array=[];%>
+        <% sub_array=[]; %>
+       
+
+    <% if(method === "team_count") { %>
+        <% let loopCount = Math.ceil(length/quantity) %>  
+        <% for(let i = 1; i <= quantity; i++){%>
+            <% for (let j = 1; j <= loopCount; j++){%>
+                <% const element = members.sort(() => {%>
+                <% return 0.5 - Math.random()})[0] %>
+                <%  members.shift() %>
+                <%  sub_array.push(element) %>
+                <%  if(length==0 ){ %>
+                <%       break;       %>
+                <% } %>
+            <%}%>
+            <%total_array.push(sub_array)%>
+            <%sub_array=[]%>
+        <%}%>
+
+        <div class="random_members">
+        <p class="members_title"># Members</p>
+        <%for(let e = 0; e < total_array.length;e++){%>
+            <p><span class="index"><%= e+1 %></span><%=total_array[e]%></p>
+            <hr>
+        <%}%>
+     <% } %>
+        </div>
+        <%if(method === "number_per_team") {%>
+
+        <% let teamnumber = Math.ceil(length/quantity) %>  
+        <% for(let i = 1; i <= teamnumber; i++){%>
+            <% for (let j = 1; j <= quantity; j++){%>
+                <% const name = members.sort(() => {%>
+                <% return 0.5 - Math.random()})[0] %>
+                <%  members.shift() %>
+                <%  sub_array.push(name) %>
+                <%  if(length==0 ){ %>
+                <%       break;       %>
+                <% } %>
+            <%}%>
+            <%total_array.push(sub_array)%>
+            <%sub_array=[]%>
+        <%}%>
+        <div class="random_members">
+        <p class="members_title"># Members</p>
+        <%for(let k = 0; k < total_array.length;k++){%>
+            <p><span class="index"><%= k+1 %></span><%=total_array[k]%></p>
+            <hr>
+        <% } %>
+        <% } %>
+
+
+
     </div>
 
 </main>

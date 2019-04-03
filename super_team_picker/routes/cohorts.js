@@ -31,24 +31,36 @@ router.get("/",(req, res)=>{
 
   router.get("/:id", (req, res) => {
     const id = req.params.id
-
-    const team_count = req.query.team_count;
-    const number_per_team = req.query.number_per_team;
-    const quantity = req.query.qunatity;
+    const quantity = req.query.quantity;
+    const method = req.query.method;
+    // a_length = a.length
+    // loopCount = Math.Ceil(a.length/quantity)
+    // b=[]
+    // sub_array=[]
+    // for(i until quantity){
+    // for (j until loopCount){
+    // y = a.sort(() => {
+    //     return 0.5 - Math.random()})[0]
+    //     a.shift()
+    // sub_array.push(y)
+    // if(a.length==0 ){
+    //     break;
+    // }
+    // }
+    // b.push(sub_array)
+    // sub_array=[]
+    // }
   
     knex("cohorts")
       .where("id", id)
       .first()
       .then(cohort => {
           if (cohort) {
-              res.render("cohorts/show", { cohort: cohort, team_count: team_count, number_per_team: team_count, qunatity: quantity});
+              res.render("cohorts/show", { cohort: cohort, quantity: quantity, method: method });
             } else {
               res.send(`Cannot find cohort with id=${id}`);
             }
       });  
     });
-
-  
-
 
   module.exports = router;
