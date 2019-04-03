@@ -12,6 +12,9 @@ html {
     display:flex;
     align-items:center;
   }
+.navbar-brand{
+    font-size:1.3em;
+}
 
   .navbar > * {
     padding: 10px;
