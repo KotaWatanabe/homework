@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<main>
+<ul>
+  <% for (let cohort of cohorts) { %>
+    
+    <li>
+    <div class="cohort">
+      <div class="img">
+      <img src="<%= cohort.logoUrl %>" alt="logoUrl" height="110" witdth="80">
+      </div>
+      <div class="content">
+      <h2><%= cohort.name %></h2> <br>
+      <p><%= cohort.members %></p> <br>
+      </div>
+      </div>
+      <a class="btn btn-primary index-btn index-btn" href= "/cohorts/<%=cohort.id%>" role="button">Show Cohort</a>
+      
+    </li>
+    
+  <% } %>
+<ul>
+</main>
+<%- include('../partials/footer') %>
