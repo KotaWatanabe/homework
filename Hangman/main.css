@@ -5,14 +5,12 @@ button{
     padding: 2em;
 }
 
-u{
-    text-decoration: underline;
-    padding: 2em;
-}
 .answer{
     margin-top: 2em;
 }
 
-span{
-    display:none;
+.char{
+    margin-right: 2em;
+    /* font-size: 2em; */
+    text-decoration: underline;
 }
