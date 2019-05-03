@@ -1,0 +1,16 @@
+.keybord{
+  font-size: 3em;
+}
+button{
+    padding: 2em;
+}
+
+.answer{
+    margin-top: 2em;
+}
+
+.char{
+    margin-right: 2em;
+    /* font-size: 2em; */
+    text-decoration: underline;
+}
